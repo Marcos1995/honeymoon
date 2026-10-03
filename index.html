@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guía de luna de miel · Costa Rica</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
-  <script>
+
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guía de luna de miel · Costa Rica</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script>
     tailwind.config = {
       theme: {
         extend: {
@@ -32,7 +33,7 @@
       }
     }
   </script>
-  <style>
+<style>
     body {
       font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
       background-color: #FAFAF9;
@@ -45,465 +46,142 @@
   </style>
 </head>
 <body class="bg-bone text-ink antialiased selection:bg-accent selection:text-white">
-
-  <!-- Contenedor Principal Escalable: 360px base hasta 1280px centrado con gutters -->
-  <main class="w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-8 sm:py-12 md:py-16 space-y-12 sm:space-y-16">
-
-    <!-- 1. HEADER -->
-    <header class="space-y-5 border-b border-borderline pb-8 md:pb-12">
-      <!-- Kicker & Chip -->
-      <div class="flex flex-wrap items-center justify-between gap-3 text-xs md:text-sm font-medium">
-        <span class="tracking-wide text-muted uppercase">
+<!-- Contenedor Principal: Mobile-first hasta 1280px con padding compacto -->
+<main class="w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 py-6 sm:py-10 space-y-8">
+<!-- 1) Cabecera / Hero compacto -->
+<header class="space-y-4 border-b border-borderline pb-6">
+<div class="flex flex-wrap items-center justify-between gap-2 text-xs font-medium">
+<span class="tracking-wide text-muted uppercase">
           Pareja · desde Madrid · julio 2027
         </span>
-        <span class="inline-flex items-center px-2.5 py-1 rounded-custom bg-white border border-borderline text-muted text-xs">
+<span class="inline-flex items-center px-2.5 py-1 rounded-custom bg-white border border-borderline text-muted text-xs">
           Cifras al 3 oct 2026
         </span>
-      </div>
-
-      <!-- Hallazgo H1 -->
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-ink leading-[1.12] max-w-4xl text-left">
+</div>
+<h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-ink leading-[1.15] max-w-3xl">
         Julio cabe en cuatro bases, sin conducir cada día.
       </h1>
-
-      <p class="text-base sm:text-lg text-muted max-w-2xl text-left font-normal leading-relaxed">
+<p class="text-sm sm:text-base text-muted max-w-2xl font-normal leading-relaxed">
         Planteamiento pausado de viaje por libre para dos semanas largas, priorizando trayectos cortos, descanso y logística realista en temporada húmeda.
       </p>
-
-      <!-- Acción principal única -->
-      <div class="pt-2">
-        <a href="#ruta" class="inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white font-medium text-sm sm:text-base px-6 py-3.5 rounded-custom transition-colors duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent">
-          <span>Ver la ruta</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </a>
+<div class="pt-1">
+<a class="inline-flex items-center justify-center gap-1.5 bg-accent hover:bg-accent-hover text-white font-medium text-xs sm:text-sm px-4 py-2.5 rounded-custom transition-colors duration-150 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent" href="#ruta-mapa">
+<span>Ver la ruta ↓</span>
+</a>
+</div>
+</header>
+<!-- 2) Cuatro KPIs en una sola fila (grid 4 cols desktop, 2x2 mobile) -->
+<section aria-label="Indicadores clave del viaje">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+<div class="bg-accent text-white p-4 sm:p-5 rounded-custom shadow-sm flex flex-col justify-between">
+<div class="text-2xl sm:text-3xl font-bold tracking-tight">4 días</div>
+<div class="text-xs sm:text-sm text-white/90 font-medium mt-1">en ruta</div>
+</div>
+<div class="bg-white border border-borderline p-4 sm:p-5 rounded-custom shadow-sm flex flex-col justify-between">
+<div class="text-2xl sm:text-3xl font-bold tracking-tight text-ink">18</div>
+<div class="text-xs sm:text-sm text-muted font-medium mt-1">noches</div>
+</div>
+<div class="bg-white border border-borderline p-4 sm:p-5 rounded-custom shadow-sm flex flex-col justify-between">
+<div class="text-2xl sm:text-3xl font-bold tracking-tight text-ink">3 h</div>
+<div class="text-xs sm:text-sm text-muted font-medium mt-1">de tope</div>
+</div>
+<div class="bg-white border border-borderline p-4 sm:p-5 rounded-custom shadow-sm flex flex-col justify-between">
+<div class="text-2xl sm:text-3xl font-bold tracking-tight text-ink">0</div>
+<div class="text-xs sm:text-sm text-muted font-medium mt-1">noches al volante de noche</div>
+</div>
+</div>
+</section>
+<!-- 3) Contenedor de mapa id="ruta-mapa" -->
+<section aria-label="Mapa de la ruta">
+<div class="w-full h-[280px] rounded-custom border border-borderline overflow-hidden" id="ruta-mapa" role="img" aria-label="Mapa: Alajuela, Tortuguero, La Fortuna y Uvita"></div>
+</section>
+<!-- 4) Cuatro filas de ruta (líneas horizontales limpias) -->
+<section aria-label="Itinerario en cuatro bases" class="space-y-2">
+<div class="bg-white border border-borderline px-4 py-3 rounded-custom flex flex-col gap-0.5 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm">
+<span class="font-semibold text-ink">Alajuela</span>
+<span class="text-muted">1 noche</span>
+<span class="text-muted text-right">taxi 15 min desde SJO</span>
+</div>
+<div class="bg-white border border-borderline px-4 py-3 rounded-custom flex flex-col gap-0.5 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm">
+<span class="font-semibold text-ink">Tortuguero</span>
+<span class="text-muted">3 noches</span>
+<span class="text-muted text-right">vuelo ~120 USD o lancha, sin coche</span>
+</div>
+<div class="bg-white border border-borderline px-4 py-3 rounded-custom flex flex-col gap-0.5 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm">
+<span class="font-semibold text-ink">La Fortuna</span>
+<span class="text-muted">6 noches</span>
+<span class="text-muted text-right">4x4 ~2,5 h</span>
+</div>
+<div class="bg-white border border-borderline px-4 py-3 rounded-custom flex flex-col gap-0.5 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm">
+<span class="font-semibold text-ink">Uvita</span>
+<span class="text-muted">8 noches</span>
+<span class="text-muted text-right">Costanera Sur por la mañana</span>
+</div>
+</section>
+<!-- 5) Una sola lista corta de gasto -->
+<section aria-label="Lista corta de gastos">
+<div class="bg-white border border-borderline p-4 sm:p-5 rounded-custom space-y-2.5 text-xs sm:text-sm">
+<div class="flex justify-between items-center py-1 border-b border-borderline">
+<span class="font-medium text-ink">Vuelos MAD–SJO</span>
+<span class="text-muted text-right">1.069 €/pers. <span class="text-[11px]">(Kayak, media de agosto, no es julio 2027)</span></span>
+</div>
+<div class="flex justify-between items-center py-1 border-b border-borderline">
+<span class="font-medium text-ink">Coche 4x4</span>
+<span class="text-muted text-right">~145 USD/día</span>
+</div>
+<div class="flex justify-between items-center py-1 border-b border-borderline">
+<span class="font-medium text-ink">Lodge Tortuguero</span>
+<span class="text-muted text-right">421,49 USD/pers. <span class="text-[11px]">(3 días/2 noches)</span></span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-medium text-ink">Manuel Antonio</span>
+<span class="text-muted text-right">18,08 USD, cierra los martes</span>
+</div>
+</div>
+</section>
+<!-- 6) Tres precios de catálogo de referencia en una sola línea cada uno -->
+<section aria-label="Precios de referencia en agencias">
+<div class="bg-white border border-borderline p-4 rounded-custom space-y-2 text-xs sm:text-sm">
+<div class="flex justify-between items-center py-1 border-b border-borderline">
+<span class="font-medium text-ink">Catai</span>
+<span class="text-muted">desde 2.855 € (mayo, no julio)</span>
+</div>
+<div class="flex justify-between items-center py-1 border-b border-borderline">
+<span class="font-medium text-ink">Tarannà</span>
+<span class="text-muted">4.120 € + 398 € tasas</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="font-medium text-ink">Atrápalo</span>
+<span class="text-muted">desde 2.403 € y 3.509 €</span>
+</div>
+</div>
+</section>
+<!-- 7) Una línea de clima concisa -->
+<section aria-label="Clima">
+<div class="bg-white border border-borderline px-4 py-3 rounded-custom text-xs sm:text-sm text-ink text-center sm:text-left">
+        Tortuguero en julio: 624 mm en 22 días · 24–30 °C
       </div>
-    </header>
-
-    <!-- 2. FILA DE 4 KPI -->
-    <section aria-label="Indicadores clave del viaje">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        
-        <!-- KPI 1 (Hero: Fondo acento) -->
-        <article class="bg-accent text-white p-6 rounded-custom flex flex-col justify-between space-y-4 shadow-sm">
-          <div>
-            <span class="text-xs uppercase tracking-wider font-semibold text-white/80 block">Ritmo de carretera</span>
-            <div class="mt-2 text-4xl sm:text-5xl font-bold tracking-tight">4 días</div>
-            <div class="text-sm text-white/90 font-medium">en ruta</div>
-          </div>
-          <div>
-            <span class="inline-block text-xs bg-white/15 text-white px-2.5 py-1 rounded-custom font-medium">
-              frente a un circuito de 15 días
-            </span>
-          </div>
-        </article>
-
-        <!-- KPI 2 -->
-        <article class="bg-white border border-borderline p-6 rounded-custom flex flex-col justify-between space-y-4 shadow-sm">
-          <div>
-            <span class="text-xs uppercase tracking-wider font-semibold text-muted block">Duración estancia</span>
-            <div class="mt-2 text-4xl sm:text-5xl font-bold tracking-tight text-ink">18</div>
-            <div class="text-sm text-muted font-medium">noches</div>
-          </div>
-          <div>
-            <span class="inline-block text-xs bg-bone border border-borderline text-muted px-2.5 py-1 rounded-custom font-medium">
-              frente al estándar de 14 noches
-            </span>
-          </div>
-        </article>
-
-        <!-- KPI 3 -->
-        <article class="bg-white border border-borderline p-6 rounded-custom flex flex-col justify-between space-y-4 shadow-sm">
-          <div>
-            <span class="text-xs uppercase tracking-wider font-semibold text-muted block">Traslado más largo</span>
-            <div class="mt-2 text-4xl sm:text-5xl font-bold tracking-tight text-ink">3 h</div>
-            <div class="text-sm text-muted font-medium">de tope</div>
-          </div>
-          <div>
-            <span class="inline-block text-xs bg-bone border border-borderline text-muted px-2.5 py-1 rounded-custom font-medium">
-              frente a tiradas de 6 h habituales
-            </span>
-          </div>
-        </article>
-
-        <!-- KPI 4 -->
-        <article class="bg-white border border-borderline p-6 rounded-custom flex flex-col justify-between space-y-4 shadow-sm">
-          <div>
-            <span class="text-xs uppercase tracking-wider font-semibold text-muted block">Seguridad vial</span>
-            <div class="mt-2 text-4xl sm:text-5xl font-bold tracking-tight text-ink">0</div>
-            <div class="text-sm text-muted font-medium">noches al volante de noche</div>
-          </div>
-          <div>
-            <span class="inline-block text-xs bg-bone border border-borderline text-muted px-2.5 py-1 rounded-custom font-medium">
-              frente a llegadas a ciegas con lluvia
-            </span>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- 3. DOS GRÁFICOS: BARRAS & COMPARACIÓN -->
-    <section class="space-y-8" aria-label="Presupuesto y comparativa de agencias">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-        <!-- Gráfico 1: Reparto de presupuesto por cuenta propia -->
-        <div class="bg-white border border-borderline p-6 sm:p-7 rounded-custom flex flex-col justify-between shadow-sm space-y-6">
-          <div class="space-y-1">
-            <h2 class="text-lg sm:text-xl font-bold text-ink tracking-tight">
-              Qué leer: los vuelos internacionales y el 4x4 concentran el gasto fijo
-            </h2>
-            <p class="text-xs sm:text-sm text-muted">
-              Estimación de partidas base individuales por cuenta propia a partir de precios de referencia.
-            </p>
-          </div>
-
-          <!-- Gráfico de barras horizontales limpias -->
-          <div class="space-y-4 py-2">
-            <!-- Barra 1: Vuelos internacionales -->
-            <div class="space-y-1.5">
-              <div class="flex justify-between text-xs sm:text-sm">
-                <span class="font-medium text-ink">Vuelos ida y vuelta MAD–SJO</span>
-                <span class="font-semibold text-ink">1.069 €</span>
-              </div>
-              <div class="w-full bg-bone h-4 rounded-custom overflow-hidden border border-borderline">
-                <div class="bg-accent h-full rounded-custom" style="width: 52%;"></div>
-              </div>
-              <p class="text-[11px] text-muted">Kayak, media de agosto: 1.069 € por persona, ida y vuelta Madrid–Costa Rica. No es un billete de julio 2027.</p>
-            </div>
-
-            <!-- Barra 2: Coche 4x4 -->
-            <div class="space-y-1.5">
-              <div class="flex justify-between text-xs sm:text-sm">
-                <span class="font-medium text-ink">Coche 4x4 (est. ~10 días en ruta)</span>
-                <span class="font-semibold text-ink">~1.450 USD</span>
-              </div>
-              <div class="w-full bg-bone h-4 rounded-custom overflow-hidden border border-borderline">
-                <div class="bg-[#2A8C73] h-full rounded-custom" style="width: 44%;"></div>
-              </div>
-              <p class="text-[11px] text-muted">Coche 4x4 temporada alta con seguro obligatorio: unos 145 USD al día. No entra en Tortuguero.</p>
-            </div>
-
-            <!-- Barra 3: Laguna Lodge -->
-            <div class="space-y-1.5">
-              <div class="flex justify-between text-xs sm:text-sm">
-                <span class="font-medium text-ink">Lodge paquete completo (Tortuguero)</span>
-                <span class="font-semibold text-ink">421,49 USD</span>
-              </div>
-              <div class="w-full bg-bone h-4 rounded-custom overflow-hidden border border-borderline">
-                <div class="bg-[#52A791] h-full rounded-custom" style="width: 26%;"></div>
-              </div>
-              <p class="text-[11px] text-muted">Laguna Lodge, julio, 3 días/2 noches, columna doble: 421,49 USD por persona.</p>
-            </div>
-
-            <!-- Barra 4: Vuelos internos -->
-            <div class="space-y-1.5">
-              <div class="flex justify-between text-xs sm:text-sm">
-                <span class="font-medium text-ink">Vuelos internos (SJO–Tortuguero)</span>
-                <span class="font-semibold text-ink">~120 USD</span>
-              </div>
-              <div class="w-full bg-bone h-4 rounded-custom overflow-hidden border border-borderline">
-                <div class="bg-[#83C2B1] h-full rounded-custom" style="width: 14%;"></div>
-              </div>
-              <p class="text-[11px] text-muted">Vuelo SJO–Tortuguero: unos 120 USD por persona y trayecto.</p>
-            </div>
-
-            <!-- Barra 5: Entradas -->
-            <div class="space-y-1.5">
-              <div class="flex justify-between text-xs sm:text-sm">
-                <span class="font-medium text-ink">Entrada Parque Nacional Manuel Antonio</span>
-                <span class="font-semibold text-ink">18,08 USD</span>
-              </div>
-              <div class="w-full bg-bone h-4 rounded-custom overflow-hidden border border-borderline">
-                <div class="bg-muted h-full rounded-custom" style="width: 5%;"></div>
-              </div>
-              <p class="text-[11px] text-muted">Manuel Antonio, adulto no residente: 18,08 USD. Cierra los martes.</p>
-            </div>
-          </div>
-
-          <!-- Leyenda -->
-          <footer class="pt-3 border-t border-borderline flex flex-wrap items-center gap-4 text-xs text-muted">
-            <span class="inline-flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-custom bg-accent inline-block"></span> Vuelos / Transporte
-            </span>
-            <span class="inline-flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-custom bg-[#52A791] inline-block"></span> Estancia & Logística
-            </span>
-            <span class="inline-flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-custom bg-muted inline-block"></span> Entradas
-            </span>
-          </footer>
-        </div>
-
-        <!-- Gráfico 2: Comparación de tres agencias (sin orden de mejor a peor) -->
-        <div class="bg-white border border-borderline p-6 sm:p-7 rounded-custom flex flex-col justify-between shadow-sm space-y-6">
-          <div class="space-y-1">
-            <h2 class="text-lg sm:text-xl font-bold text-ink tracking-tight">
-              Qué leer: la disparidad reside en las fechas base y la letra pequeña de los coches
-            </h2>
-            <p class="text-xs sm:text-sm text-muted">
-              Tres paquetes comerciales de catálogo con sus inclusiones y condiciones concretas de temporada.
-            </p>
-          </div>
-
-          <!-- Tres filas de agencias -->
-          <div class="space-y-3.5 py-1">
-            
-            <!-- Fila Catai -->
-            <article class="p-4 rounded-custom bg-bone border border-borderline space-y-2">
-              <div class="flex items-baseline justify-between gap-2">
-                <div class="font-bold text-ink text-base">Catai</div>
-                <div class="text-sm sm:text-base font-bold text-ink">Desde 2.855 € / pers.</div>
-              </div>
-              <p class="text-xs text-ink/90 font-medium">15 días de viaje organizado.</p>
-              <div class="text-[11px] text-muted leading-relaxed">
-                Precio anunciado «desde 2.855 € por persona en mayo, no en julio». Requiere cotizar el incremento para verano.
-              </div>
-            </article>
-
-            <!-- Fila Tarannà -->
-            <article class="p-4 rounded-custom bg-bone border border-borderline space-y-2">
-              <div class="flex items-baseline justify-between gap-2">
-                <div class="font-bold text-ink text-base">Tarannà</div>
-                <div class="text-sm sm:text-base font-bold text-ink">4.120 € + 398 € tasas</div>
-              </div>
-              <p class="text-xs text-ink/90 font-medium">16 días con suplemento estival aparte.</p>
-              <div class="text-[11px] text-muted leading-relaxed">
-                Suplemento terrestre 1 jul–31 ago: 310 €. «Incluye coche, no el seguro del coche».
-              </div>
-            </article>
-
-            <!-- Fila Atrápalo -->
-            <article class="p-4 rounded-custom bg-bone border border-borderline space-y-2">
-              <div class="flex items-baseline justify-between gap-2">
-                <div class="font-bold text-ink text-base">Atrápalo</div>
-                <div class="text-sm sm:text-base font-bold text-ink">Desde 2.403 € y 3.509 €</div>
-              </div>
-              <p class="text-xs text-ink/90 font-medium">14 noches desde Madrid.</p>
-              <div class="text-[11px] text-muted leading-relaxed">
-                Horquilla de precio por persona para salidas en ventana junio–noviembre 2026.
-              </div>
-            </article>
-
-          </div>
-
-          <!-- Leyenda -->
-          <footer class="pt-3 border-t border-borderline text-xs text-muted flex items-center justify-between">
-            <span>Listado descriptivo neutral (sin clasificación de calidad ni ranking comercial).</span>
-          </footer>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 4. RUTA EN 4 BLOQUES APILADOS -->
-    <section id="ruta" class="space-y-6 pt-4" aria-label="Itinerario de la ruta">
-      <div class="space-y-1">
-        <span class="text-xs font-semibold tracking-wider text-accent uppercase">Itinerario propuesto</span>
-        <h2 class="text-2xl sm:text-3xl font-bold text-ink tracking-tight">Ruta en cuatro bases consecutivas</h2>
-        <p class="text-sm text-muted">Cada cambio de campamento base cuenta con traslados acotados para no quemar días de vacaciones al volante.</p>
-      </div>
-
-      <div class="space-y-4">
-
-        <!-- Bloque 1: Alajuela -->
-        <article class="bg-white border border-borderline p-6 rounded-custom transition-shadow hover:shadow-sm">
-          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-            <div class="space-y-1">
-              <div class="flex items-center gap-2.5">
-                <span class="w-6 h-6 rounded-custom bg-ink text-white text-xs font-bold flex items-center justify-center">1</span>
-                <h3 class="text-xl font-bold text-ink">Alajuela</h3>
-              </div>
-              <p class="text-xs sm:text-sm text-muted font-medium pl-8.5 sm:pl-0">Valle Central / Llegada internacional</p>
-            </div>
-            <div class="inline-flex items-center gap-2 self-start">
-              <span class="px-3 py-1 rounded-custom bg-bone border border-borderline text-xs font-semibold text-ink">
-                1 noche
-              </span>
-            </div>
-          </div>
-          
-          <div class="mt-4 pt-4 border-t border-borderline grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-            <div>
-              <span class="font-semibold text-muted block text-xs uppercase tracking-wider mb-1">Traslado de entrada</span>
-              <p class="text-ink">Aterrizaje en el Aeropuerto Juan Santamaría (SJO). Traslado inmediato de 10-15 min en taxi/transfer al alojamiento en Alajuela para descansar sin entrar al tráfico de San José capital.</p>
-            </div>
-            <div>
-              <span class="font-semibold text-muted block text-xs uppercase tracking-wider mb-1">Enfoque logístico</span>
-              <p class="text-muted">Aclimatación tras el vuelo transatlántico desde Madrid. El coche de alquiler no se recoge aún para evitar gastos de aparcamiento y retenciones el día 1.</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Bloque 2: Tortuguero -->
-        <article class="bg-white border border-borderline p-6 rounded-custom transition-shadow hover:shadow-sm">
-          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-            <div class="space-y-1">
-              <div class="flex items-center gap-2.5">
-                <span class="w-6 h-6 rounded-custom bg-ink text-white text-xs font-bold flex items-center justify-center">2</span>
-                <h3 class="text-xl font-bold text-ink">Tortuguero</h3>
-              </div>
-              <p class="text-xs sm:text-sm text-muted font-medium pl-8.5 sm:pl-0">Caribe Norte / Canales y desove de tortugas</p>
-            </div>
-            <div class="inline-flex items-center gap-2 self-start">
-              <span class="px-3 py-1 rounded-custom bg-bone border border-borderline text-xs font-semibold text-ink">
-                3 noches
-              </span>
-            </div>
-          </div>
-          
-          <div class="mt-4 pt-4 border-t border-borderline grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-            <div>
-              <span class="font-semibold text-muted block text-xs uppercase tracking-wider mb-1">Traslado de entrada</span>
-              <p class="text-ink">Vuelo doméstico directo SJO–Tortuguero (unos 120 USD por persona y trayecto) o transfer terrestre + lancha por los canales hasta el muelle del lodge.</p>
-            </div>
-            <div>
-              <span class="font-semibold text-muted block text-xs uppercase tracking-wider mb-1">Enfoque logístico</span>
-              <p class="text-muted">Estancia en régimen de paquete: Laguna Lodge, julio, 3 días/2 noches, columna doble: 421,49 USD por persona. Cero uso de coche (inaccesible por carretera).</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Bloque 3: La Fortuna -->
-        <article class="bg-white border border-borderline p-6 rounded-custom transition-shadow hover:shadow-sm">
-          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-            <div class="space-y-1">
-              <div class="flex items-center gap-2.5">
-                <span class="w-6 h-6 rounded-custom bg-ink text-white text-xs font-bold flex items-center justify-center">3</span>
-                <h3 class="text-xl font-bold text-ink">La Fortuna</h3>
-              </div>
-              <p class="text-xs sm:text-sm text-muted font-medium pl-8.5 sm:pl-0">Volcán Arenal, aguas termales y bosque nuboso</p>
-            </div>
-            <div class="inline-flex items-center gap-2 self-start">
-              <span class="px-3 py-1 rounded-custom bg-bone border border-borderline text-xs font-semibold text-ink">
-                6 noches
-              </span>
-            </div>
-          </div>
-          
-          <div class="mt-4 pt-4 border-t border-borderline grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-            <div>
-              <span class="font-semibold text-muted block text-xs uppercase tracking-wider mb-1">Traslado de entrada</span>
-              <p class="text-ink">Salida en lancha hasta Guápiles / La Pavona, recepción y entrega del vehículo 4x4 (unos 145 USD/día en temporada alta con seguro). Trayecto en coche diurno de unas 2,5 h hasta La Fortuna.</p>
-            </div>
-            <div>
-              <span class="font-semibold text-muted block text-xs uppercase tracking-wider mb-1">Enfoque logístico</span>
-              <p class="text-muted">El volcán Arenal no expulsa lava desde 2010: se ve el cono en días despejados matutinos. Base cómoda y amplia para evitar mudanzas diarias de equipaje.</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- Bloque 4: Uvita -->
-        <article class="bg-white border border-borderline p-6 rounded-custom transition-shadow hover:shadow-sm">
-          <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-            <div class="space-y-1">
-              <div class="flex items-center gap-2.5">
-                <span class="w-6 h-6 rounded-custom bg-accent text-white text-xs font-bold flex items-center justify-center">4</span>
-                <h3 class="text-xl font-bold text-ink">Uvita</h3>
-              </div>
-              <p class="text-xs sm:text-sm text-muted font-medium pl-8.5 sm:pl-0">Pacífico Sur / Bahía Ballena y Manuel Antonio</p>
-            </div>
-            <div class="inline-flex items-center gap-2 self-start">
-              <span class="px-3 py-1 rounded-custom bg-accent-light border border-accent/20 text-xs font-semibold text-accent">
-                8 noches
-              </span>
-            </div>
-          </div>
-          
-          <div class="mt-4 pt-4 border-t border-borderline grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
-            <div>
-              <span class="font-semibold text-muted block text-xs uppercase tracking-wider mb-1">Traslado de entrada</span>
-              <p class="text-ink">Ruta panorámica costera por la carretera Costanera Sur (Ruta 34). Tirada cómoda planificada íntegramente de mañana para llegar a comer junto al mar.</p>
-            </div>
-            <div>
-              <span class="font-semibold text-muted block text-xs uppercase tracking-wider mb-1">Enfoque logístico</span>
-              <p class="text-muted">Excursión accesible a Manuel Antonio (adulto no residente: 18,08 USD; cierra los martes). Época inicial de avistamiento de ballenas jorobadas y descanso de luna de miel.</p>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- 5. BLOQUES: CLIMA Y «ANTES DE IR» -->
-    <section class="space-y-8" aria-label="Condiciones y requisitos">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
-
-        <!-- Bloque Clima -->
-        <article class="bg-white border border-borderline p-6 sm:p-7 rounded-custom shadow-sm space-y-4">
-          <div class="space-y-1">
-            <span class="text-xs font-semibold uppercase tracking-wider text-muted">Datos meteorológicos oficiales</span>
-            <h3 class="text-xl font-bold text-ink">Clima en julio</h3>
-          </div>
-          
-          <div class="p-4 bg-bone border border-borderline rounded-custom space-y-3">
-            <div class="text-sm font-semibold text-ink">Tortuguero en julio:</div>
-            <div class="grid grid-cols-2 gap-3 text-xs sm:text-sm">
-              <div class="bg-white p-3 rounded-custom border border-borderline">
-                <span class="text-muted text-xs block mb-0.5">Precipitación</span>
-                <span class="text-base sm:text-lg font-bold text-ink">624 mm</span>
-                <span class="text-muted block text-[11px]">en 22 días</span>
-              </div>
-              <div class="bg-white p-3 rounded-custom border border-borderline">
-                <span class="text-muted text-xs block mb-0.5">Temperaturas</span>
-                <span class="text-base sm:text-lg font-bold text-ink">24 °C – 30 °C</span>
-                <span class="text-muted block text-[11px]">mínima y máxima</span>
-              </div>
-            </div>
-          </div>
-
-          <p class="text-xs sm:text-sm text-muted leading-relaxed">
-            Julio se ubica en plena temporada de lluvias en el Caribe y Pacífico Central. Se recomienda organizar las actividades y traslados por la mañana (franja habitual con claros y sol) y reservar las tardes para termas o descanso cubierto.
-          </p>
-        </article>
-
-        <!-- Bloque Antes de Ir -->
-        <article class="bg-white border border-borderline p-6 sm:p-7 rounded-custom shadow-sm space-y-4">
-          <div class="space-y-1">
-            <span class="text-xs font-semibold uppercase tracking-wider text-muted">Requisitos y advertencias prácticas</span>
-            <h3 class="text-xl font-bold text-ink">Antes de ir</h3>
-          </div>
-
-          <ul class="space-y-3 text-xs sm:text-sm">
-            <li class="p-3 bg-bone border border-borderline rounded-custom flex items-start gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0"></span>
-              <div>
-                <strong class="text-ink font-semibold">Pasaporte español:</strong>
-                <span class="text-muted"> Sin visado para estancias turísticas; requisito estricto de <span class="text-ink font-medium">6 meses de validez</span> tras la fecha de regreso.</span>
-              </div>
-            </li>
-
-            <li class="p-3 bg-bone border border-borderline rounded-custom flex items-start gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0"></span>
-              <div>
-                <strong class="text-ink font-semibold">Volcán Arenal:</strong>
-                <span class="text-muted"> El volcán Arenal no expulsa lava desde 2010: se ve el cono cuando se despeja. Evitar excursiones vendidas con promesa de ríos de magma.</span>
-              </div>
-            </li>
-
-            <li class="p-3 bg-bone border border-borderline rounded-custom flex items-start gap-2.5">
-              <span class="w-2 h-2 rounded-full bg-accent mt-1.5 shrink-0"></span>
-              <div>
-                <strong class="text-ink font-semibold">Coche y carreteras:</strong>
-                <span class="text-muted"> Alquiler de 4x4 necesario para caminos rurales y puentes secundarios (~145 USD/día con seguro obligatorio). Cero noches de conducción nocturna.</span>
-              </div>
-            </li>
-          </ul>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- 6. LÍNEA DE FUENTES AL PIE -->
-    <footer class="pt-8 pb-12 border-t border-borderline space-y-3 text-xs text-muted">
-      <div class="font-semibold text-ink uppercase tracking-wider text-[11px]">Fuentes y notas metodológicas</div>
-      <p class="leading-relaxed">
-        Precios recopilados a 3 de octubre de 2026. Kayak (media de billetes de agosto Madrid–SJO; no corresponde a tarifa emitida de julio 2027), Laguna Lodge (tarifas cotizadas de julio, 3 días/2 noches en habitación doble por persona), Instituto Costarricense de Turismo y SINAC (tarifa Manuel Antonio y cierre semanal los martes), cotizaciones de catálogos turísticos Catai (mayo), Tarannà Viatges (verano, sin seguro de coche incluido) y Atrápalo (salidas junio–noviembre 2026). Datos pluviométricos y climáticos del Instituto Meteorológico Nacional de Costa Rica para Tortuguero.
-      </p>
-    </footer>
-
-  </main>
-
-</body>
-</html>
+</section>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+  const stops = [
+    ["Alajuela", 10.0162, -84.2116],
+    ["Tortuguero", 10.5425, -83.5024],
+    ["La Fortuna", 10.4678, -84.6427],
+    ["Uvita", 9.1586, -83.7365]
+  ];
+  const map = L.map("ruta-mapa", {scrollWheelZoom: false});
+  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 16,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+  const points = stops.map(([name, lat, lng], i) => {
+    const marker = L.marker([lat, lng]).addTo(map).bindTooltip(name, {permanent: true, direction: "top", offset: [0, -8]});
+    marker.bindPopup((i + 1) + ". " + name);
+    return marker.getLatLng();
+  });
+  L.polyline(points, {color: "#0F6E56", weight: 3}).addTo(map);
+  map.fitBounds(points, {padding: [28, 28]});
+</script>
+</body></html>

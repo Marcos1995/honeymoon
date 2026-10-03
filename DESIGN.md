@@ -8,4 +8,5 @@ Minimal, moderno y limpio. Mucho aire, jerarquía clara, una sola acción princi
 - Fuente: DM Sans. Radio 8px.
 - Stitch project: `7165370257566713357`
 - Design system: `assets/10490742945704890324`
-- Screen: `4c71e747529f469783eab8387bab1f20`
+- Screen: `26778d5e3d564733833a5d8d28e30573`
+- Compacta. Mapa de la ruta (OpenStreetMap): Alajuela, Tortuguero, La Fortuna, Uvita.
