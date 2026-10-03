@@ -8,7 +8,7 @@
 
 ## Estado
 - Guía de luna de miel en Costa Rica, julio 2027, 18 noches desde Madrid. Recomendación: agencia si ningún tramo pasa de 3 h (Laya, `docs/DECISIONES.md`).
-- Página en el estilo expresivo verde (Public Sans, cifra principal sobre `#18E667`, botón `#0A3D22`), con mapa de la ruta e interruptor sol/luna.
+- Página en el estilo expresivo verde (Public Sans, cifra principal sobre `#18E667`, botón `#0A3D22`), con mapa de la ruta e interruptor sol/luna. El clic en un punto abre Ruta en Google Maps con ese destino. Estas bases no tienen web propia.
 - Cifras citadas al 3 oct 2026. El presupuesto por libre no suma hoteles de La Fortuna ni de Uvita: no había tarifa publicada.
 
 ## Stack

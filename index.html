@@ -266,7 +266,13 @@
     }).addTo(map);
     const points = stops.map(([name, lat, lng], i) => {
       const marker = L.marker([lat, lng]).addTo(map).bindTooltip(name, { permanent: true, direction: "top", offset: [0, -8] });
-      marker.bindPopup((i + 1) + ". " + name);
+      const ruta = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(lat + "," + lng);
+      marker.bindPopup(
+        '<div style="font-family:\'Public Sans\',sans-serif;padding:4px">' +
+        '<div style="font-weight:800;font-size:13px;color:#032612">' + (i + 1) + ". " + name + "</div>" +
+        '<a href="' + ruta + '" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:8px;background:#0A3D22;color:#fff;font-weight:700;font-size:12px;line-height:1;padding:8px 14px;border-radius:999px;text-decoration:none">Ruta</a>' +
+        "</div>"
+      );
       return marker.getLatLng();
     });
     L.polyline(points, { color: "#0A3D22", weight: 3 }).addTo(map);
