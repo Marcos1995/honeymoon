@@ -1,7 +1,7 @@
-# Graph Report - honeymoon  (2026-10-03)
+# Graph Report - honeymoon  (2026-10-04)
 
 ## Corpus Check
-- 14 files · ~4,663 words
+- 14 files · ~4,521 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 2 file(s) not represented in the graph (top: .mdc 2)
 
@@ -9,6 +9,11 @@
 - 56 nodes · 42 edges · 14 communities (10 shown, 4 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `c118df53`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Debug
