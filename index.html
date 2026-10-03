@@ -59,6 +59,12 @@
     html[data-theme="dark"] .hover\:bg-sand:hover { background: #1A2C22; }
     html[data-theme="dark"] .text-pine-cta { color: #18E667; }
     html[data-theme="dark"] .leaflet-tile-pane { filter: invert(1) hue-rotate(180deg); }
+    .place { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .place[aria-current="true"] { color: #0A3D22; }
+    html[data-theme="dark"] .place[aria-current="true"] { color: #18E667; }
+    .pin { background: none; border: 0; }
+    .pin span { display: block; width: 16px; height: 16px; margin: 3px; border-radius: 99px; background: #0A3D22; border: 2px solid #fff; box-shadow: 0 1px 3px rgb(0 0 0 / .35); }
+    .pin span.on { background: #18E667; box-shadow: 0 0 0 7px rgb(24 230 103 / .45); }
     a:focus-visible, button:focus-visible { outline: 2px solid #0A3D22; outline-offset: 3px; }
     html[data-theme="dark"] a:focus-visible,
     html[data-theme="dark"] button:focus-visible { outline-color: #18E667; }
@@ -140,7 +146,7 @@
 
         <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
           <div class="flex items-baseline gap-3">
-            <span class="text-lg font-extrabold text-text-main">Alajuela</span>
+            <button type="button" class="place text-lg font-extrabold text-text-main" data-place="Alajuela">Alajuela</button>
             <span class="text-sm font-semibold text-pine-cta">1 noche</span>
           </div>
           <div class="text-sm text-text-muted">taxi 15 min desde SJO</div>
@@ -148,7 +154,7 @@
 
         <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
           <div class="flex items-baseline gap-3">
-            <span class="text-lg font-extrabold text-text-main">Tortuguero</span>
+            <button type="button" class="place text-lg font-extrabold text-text-main" data-place="Tortuguero">Tortuguero</button>
             <span class="text-sm font-semibold text-pine-cta">3 noches</span>
           </div>
           <div class="text-sm text-text-muted">vuelo ~120 USD o lancha, sin coche</div>
@@ -156,7 +162,7 @@
 
         <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
           <div class="flex items-baseline gap-3">
-            <span class="text-lg font-extrabold text-text-main">La Fortuna</span>
+            <button type="button" class="place text-lg font-extrabold text-text-main" data-place="La Fortuna">La Fortuna</button>
             <span class="text-sm font-semibold text-pine-cta">6 noches</span>
           </div>
           <div class="text-sm text-text-muted">4x4 ~2,5 h</div>
@@ -164,7 +170,7 @@
 
         <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4">
           <div class="flex items-baseline gap-3">
-            <span class="text-lg font-extrabold text-text-main">Uvita</span>
+            <button type="button" class="place text-lg font-extrabold text-text-main" data-place="Uvita">Uvita</button>
             <span class="text-sm font-semibold text-pine-cta">8 noches</span>
           </div>
           <div class="text-sm text-text-muted">Costanera Sur por la mañana</div>
@@ -194,7 +200,7 @@
 
           <div class="flex flex-col items-start gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4 border-b border-border-subtle pb-3.5">
             <div>
-              <p class="text-base font-bold text-text-main">Lodge Tortuguero</p>
+              <p class="text-base font-bold text-text-main">Lodge <button type="button" class="place" data-place="Tortuguero">Tortuguero</button></p>
               <p class="text-xs text-text-muted mt-0.5">3 días/2 noches</p>
             </div>
             <p class="text-base sm:text-lg font-extrabold text-text-main sm:whitespace-nowrap">421,49 USD/pers.</p>
@@ -240,13 +246,13 @@
 
     <section class="w-full" aria-label="Clima">
       <div class="rounded-2xl bg-card-bg border border-border-subtle px-5 py-4 text-text-main text-sm sm:text-base font-medium">
-        Tortuguero en julio: 624 mm en 22 días · 24–30 °C
+        <button type="button" class="place" data-place="Tortuguero">Tortuguero</button> en julio: 624 mm en 22 días · 24–30 °C
       </div>
     </section>
 
     <footer class="pt-2 pb-10 border-t border-border-subtle">
       <p class="text-xs sm:text-sm text-text-muted">
-        El presupuesto por libre no suma hoteles de La Fortuna ni de Uvita: no había tarifa publicada.
+        El presupuesto por libre no suma hoteles de <button type="button" class="place" data-place="La Fortuna">La Fortuna</button> ni de <button type="button" class="place" data-place="Uvita">Uvita</button>: no había tarifa publicada.
       </p>
     </footer>
 
@@ -264,8 +270,40 @@
       maxZoom: 16,
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+    const markers = {};
+    let current = "";
+    function pin(on) {
+      return L.divIcon({
+        className: "pin",
+        html: "<span" + (on ? ' class="on"' : "") + "></span>",
+        iconSize: [22, 22],
+        iconAnchor: [11, 11],
+        popupAnchor: [0, -14]
+      });
+    }
+    function showPlace(name) {
+      const marker = markers[name];
+      if (!marker) return;
+      if (current && markers[current]) markers[current].setIcon(pin(false));
+      current = name;
+      marker.setIcon(pin(true));
+      map.panTo(marker.getLatLng(), {
+        animate: !matchMedia("(prefers-reduced-motion: reduce)").matches
+      });
+      marker.openPopup();
+      document.querySelectorAll("[data-place]").forEach(function (el) {
+        if (el.dataset.place === name) el.setAttribute("aria-current", "true");
+        else el.removeAttribute("aria-current");
+      });
+      document.getElementById("ruta-mapa").scrollIntoView({
+        behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+        block: "center"
+      });
+    }
     const points = stops.map(([name, lat, lng], i) => {
-      const marker = L.marker([lat, lng]).addTo(map).bindTooltip(name, { permanent: true, direction: "top", offset: [0, -8] });
+      const marker = L.marker([lat, lng], { icon: pin(false) }).addTo(map);
+      markers[name] = marker;
+      marker.bindTooltip(name, { permanent: true, direction: "top", offset: [0, -12] });
       const ruta = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(lat + "," + lng);
       marker.bindPopup(
         '<div style="font-family:\'Public Sans\',sans-serif;padding:4px">' +
@@ -273,7 +311,11 @@
         '<a href="' + ruta + '" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:8px;background:#0A3D22;color:#fff;font-weight:700;font-size:12px;line-height:1;padding:8px 14px;border-radius:999px;text-decoration:none">Ruta</a>' +
         "</div>"
       );
+      marker.on("click", function () { showPlace(name); });
       return marker.getLatLng();
+    });
+    document.querySelectorAll("[data-place]").forEach(function (el) {
+      el.addEventListener("click", function () { showPlace(el.dataset.place); });
     });
     L.polyline(points, { color: "#0A3D22", weight: 3 }).addTo(map);
     map.fitBounds(points, { padding: [28, 28] });

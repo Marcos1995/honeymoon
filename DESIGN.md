@@ -9,4 +9,4 @@ Expresivo y verde. Titular display grande (Public Sans, muy negro). La cifra pri
 - Stitch project: `7165370257566713357`
 - Design system: `assets/14281054626209386731`
 - Screen: `5ec077d2586642bfb06cebb7fe3b2548`
-- Compacta. Mapa de la ruta (OpenStreetMap): Alajuela, Tortuguero, La Fortuna, Uvita. El clic abre el nombre y Ruta a Google Maps (destino = ese punto). Estas bases no tienen web propia.
+- Compacta. Mapa de la ruta (OpenStreetMap): Alajuela, Tortuguero, La Fortuna, Uvita. Cada mención lleva al mapa, resalta ese punto y abre Ruta a Google Maps (destino = ese punto). Estas bases no tienen web propia.
