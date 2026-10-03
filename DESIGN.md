@@ -10,4 +10,4 @@ Minimal, moderno y limpio. Mucho aire, jerarquía clara, una sola acción princi
 - Design system: `assets/10490742945704890324`
 - Screen: `26778d5e3d564733833a5d8d28e30573`
 - Compacta. Mapa de la ruta (OpenStreetMap): Alajuela, Tortuguero, La Fortuna, Uvita.
-- Botón claro/oscuro siempre. La primera visita sigue el sistema; la elección se guarda.
+- Interruptor sol/luna: el punto marca el lado activo. La primera visita sigue el sistema; la elección se guarda.
