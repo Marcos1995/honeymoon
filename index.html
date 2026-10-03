@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Julio cabe en cuatro bases, sin conducir cada día</title>
+  <meta name="description" content="Luna de miel en Costa Rica, julio 2027, 18 noches desde Madrid. Cuatro bases, ningún tramo de más de 3 h, precios citados al 3 de octubre de 2026.">
+  <meta name="theme-color" content="#0F6E56">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230F6E56'/%3E%3Cpath d='M6 20c4-7 6-7 10-1 4-7 6-7 10-1' fill='none' stroke='%23fff' stroke-width='2'/%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#FAFAF9; --surface:#fff; --ink:#1C1917; --muted:#57534E; --line:#E7E5E4;
+      --accent:#0F6E56; --on:#fff; --soft:#E6F4EA;
+      --font:"Segoe UI",system-ui,sans-serif;
+      color-scheme:light dark;
+    }
+    @media (prefers-color-scheme:dark){:root{
+      --bg:#0C0A09; --surface:#1C1917; --ink:#FAFAF9; --muted:#A8A29E; --line:#44403C;
+      --accent:#5EEAD4; --on:#0C0A09; --soft:#134E4A;
+    }}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;overflow-x:clip;font:400 1rem/1.55 var(--font);color:var(--ink);background:var(--bg)}
+    h1,h2,h3,p,li{overflow-wrap:break-word}
+    h1,h2,h3{margin:0;font-weight:650;letter-spacing:-.03em;line-height:1.15}
+    p{margin:0}
+    a{color:inherit}
+    :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    .wrap{width:min(100%,72rem);max-width:72rem;margin-inline:auto;padding:2rem 1.25rem 3rem;overflow-wrap:break-word}
+    @media (max-width:500px){
+      .wrap{width:22.5rem;max-width:100%}
+      .lede,.note{max-width:100%}
+    }
+    .kicker{color:var(--muted);font-size:.8rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+    .chip{display:inline-block;margin:.35rem 0 0 .4rem;padding:.25rem .6rem;border:1px solid var(--line);border-radius:8px;background:var(--surface);text-transform:none;letter-spacing:0;font-weight:600;vertical-align:middle}
+    h1{margin:.8rem 0 .7rem;font-size:clamp(2rem,1.2rem + 3vw,3.4rem);max-width:16ch}
+    .lede{color:var(--muted);max-width:40rem}
+    .btn{display:inline-flex;align-items:center;min-height:44px;margin-top:1.25rem;padding:.7rem 1.2rem;background:var(--accent);color:var(--on);text-decoration:none;font-weight:650;border-radius:8px}
+    .note{margin-top:1.25rem;padding:1rem 1.1rem;background:var(--surface);border:1px solid var(--line);border-radius:8px;max-width:42rem}
+    .note strong{font-weight:650}
+    .kpis{display:grid;gap:.8rem;margin-top:1.75rem;grid-template-columns:minmax(0,1fr)}
+    .kpi{min-width:0;display:flex;flex-direction:column;gap:.35rem;padding:1.15rem 1.2rem;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+    .kpi small{color:var(--muted);font-size:.75rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .kpi b{font-size:clamp(2rem,1.4rem + 2vw,2.8rem);font-weight:700;letter-spacing:-.04em;line-height:1}
+    .kpi span{color:var(--muted)}
+    .pill{align-self:flex-start;margin-top:.35rem;padding:.2rem .55rem;border-radius:8px;background:var(--bg);border:1px solid var(--line);color:var(--muted);font-size:.78rem;font-weight:600}
+    .kpi.hero{background:var(--accent);border-color:var(--accent);color:var(--on)}
+    .kpi.hero small,.kpi.hero span,.kpi.hero .pill{color:inherit}
+    .kpi.hero .pill{background:transparent;border-color:transparent}
+    .grid2{display:grid;gap:1rem;margin-top:1.5rem}
+    .card{min-width:0;padding:1.2rem 1.25rem;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+    .card h2{font-size:1.25rem;margin-bottom:.35rem}
+    .cap{color:var(--muted);font-size:.9rem;margin-bottom:1rem}
+    .bar{margin:0 0 .95rem}
+    .bar .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.35rem .75rem;min-width:0;font-size:.92rem;font-weight:650}
+    .track{height:.7rem;margin:.35rem 0 .25rem;background:var(--bg);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+    .track i{display:block;height:100%;background:var(--accent);border-radius:8px}
+    .bar p{color:var(--muted);font-size:.78rem}
+    .agency{padding:.9rem 1rem;margin:0 0 .7rem;background:var(--bg);border:1px solid var(--line);border-radius:8px}
+    .agency .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.35rem .8rem;font-weight:700}
+    .agency p{color:var(--muted);font-size:.85rem;margin-top:.25rem}
+    .stops{display:grid;gap:.8rem;margin-top:1rem}
+    .stop{min-width:0;padding:1.1rem 1.15rem;background:var(--surface);border:1px solid var(--line);border-radius:8px}
+    .stop header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;align-items:center}
+    .num{display:inline-grid;place-items:center;width:1.6rem;height:1.6rem;margin-right:.4rem;border-radius:8px;background:var(--ink);color:var(--bg);font-size:.8rem;font-weight:700}
+    .nights{padding:.2rem .6rem;border:1px solid var(--line);border-radius:8px;font-size:.8rem;font-weight:700}
+    .split{display:grid;gap:.8rem;margin-top:.8rem;padding-top:.8rem;border-top:1px solid var(--line)}
+    .split h3{font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:.2rem}
+    .facts{display:grid;gap:.7rem}
+    .facts div{padding:.8rem .9rem;background:var(--bg);border:1px solid var(--line);border-radius:8px}
+    .facts b{display:block;font-size:1.25rem}
+    ul{margin:.2rem 0 0;padding:0;list-style:none}
+    li{margin:0 0 .55rem;padding:.75rem .85rem;background:var(--bg);border:1px solid var(--line);border-radius:8px}
+    footer{margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem;overflow-wrap:anywhere}
+    footer a{color:var(--accent)}
+    @media (min-width:768px){
+      .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .grid2,.split{grid-template-columns:1fr 1fr}
+    }
+    @media (min-width:1100px){
+      .kpis{grid-template-columns:repeat(4,minmax(0,1fr))}
+    }
+    @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <p class="kicker">Pareja · desde Madrid · julio 2027 <span class="chip">Cifras al 3 oct 2026</span></p>
+      <h1>Julio cabe en cuatro bases, sin conducir cada día.</h1>
+      <p class="lede">Dieciocho noches en destino. Los vuelos Madrid–San José van aparte. Caribe en Tortuguero, volcán en La Fortuna y playa en el Pacífico, con solo cuatro días de traslado y ningún tramo de más de tres horas.</p>
+      <a class="btn" href="#ruta">Ver la ruta</a>
+      <p class="note"><strong>Recomendación: agencia</strong>, si el circuito respeta ese tope de tres horas. Es la opción que salió mejor para no perseguir cupos de tortuga ni vuelos internos en julio. La cuenta propia está al lado, solo con tarifas que se pueden citar. Monteverde queda fuera: el traslado pasa de tres horas.</p>
+    </header>
+
+    <section class="kpis" aria-label="El ritmo del viaje">
+      <article class="kpi hero">
+        <small>Días de traslado</small>
+        <b>4</b>
+        <span>en ruta, no cada día</span>
+        <em class="pill">frente a mudaros de hotel a diario</em>
+      </article>
+      <article class="kpi">
+        <small>En Costa Rica</small>
+        <b>18</b>
+        <span>noches</span>
+        <em class="pill">frente a un circuito de 14 o 15 días</em>
+      </article>
+      <article class="kpi">
+        <small>Tramo más largo</small>
+        <b>3 h</b>
+        <span>de tope</span>
+        <em class="pill">La Fortuna–Uvita en coche pasa de 4 h: no se hace</em>
+      </article>
+      <article class="kpi">
+        <small>Conducir de noche</small>
+        <b>0</b>
+        <span>noches</span>
+        <em class="pill">en julio llueve por la tarde</em>
+      </article>
+    </section>
+
+    <section class="grid2" aria-label="Precios">
+      <article class="card">
+        <h2>Lo que sí tiene precio, por cuenta propia</h2>
+        <p class="cap">Barras en dólares y solo de la partida que dice la etiqueta. No es el total del viaje: faltan hoteles en La Fortuna y Uvita, comidas y el vuelo a Quepos.</p>
+        <div class="bar">
+          <div class="top"><span>4×4, 10 días, temporada alta</span><span>1.450 USD</span></div>
+          <div class="track" role="img" aria-label="Mil cuatrocientos cincuenta dólares"><i style="width:100%"></i></div>
+          <p>Unos 145 USD al día con el seguro obligatorio. No entra en Tortuguero: allí no hay carretera. En esta ruta sobra.</p>
+        </div>
+        <div class="bar">
+          <div class="top"><span>Laguna Lodge, 2 noches, la pareja</span><span>843 USD</span></div>
+          <div class="track" role="img" aria-label="Ochocientos cuarenta y tres dólares"><i style="width:58%"></i></div>
+          <p>Julio, paquete 3 días / 2 noches, columna doble: 421,49 USD por persona. La tercera noche no está en esa tabla.</p>
+        </div>
+        <div class="bar">
+          <div class="top"><span>SJO–Tortuguero, ida y vuelta, la pareja</span><span>480 USD</span></div>
+          <div class="track" role="img" aria-label="Cuatrocientos ochenta dólares"><i style="width:33%"></i></div>
+          <p>Unos 120 USD por persona y trayecto. La vuelta no tiene otra tarifa publicada: la cuento igual que la ida.</p>
+        </div>
+        <div class="bar">
+          <div class="top"><span>Manuel Antonio, la pareja</span><span>36 USD</span></div>
+          <div class="track" role="img" aria-label="Treinta y seis dólares"><i style="width:4%"></i></div>
+          <p>18,08 USD por adulto no residente. Cierra los martes. Entradas solo en el sitio de SINAC.</p>
+        </div>
+        <p class="cap">El vuelo Madrid–Costa Rica no va en este gráfico: es otra moneda. Kayak da una media de agosto de 1.069 € por persona, ida y vuelta. No es un billete de julio 2027.</p>
+      </article>
+
+      <article class="card" id="agencias">
+        <h2>Tres catálogos, sin orden de mejor a peor</h2>
+        <p class="cap">El ancho es el precio de lista por persona, en euros. No es el mismo viaje: cambian los meses, las noches y lo que incluye.</p>
+        <div class="bar">
+          <div class="top"><span>Tarannà, julio, tierra y tasas</span><span>4.828 €</span></div>
+          <div class="track" role="img" aria-label="Cuatro mil ochocientos veintiocho euros"><i style="width:100%"></i></div>
+          <p>Base 4.120 € más 398 € de tasas (cálculo del 20 ene 2025) y suplemento terrestre 1 jul–31 ago de 310 €. Incluye coche 4×2. El seguro del coche no va: ellos mismos lo ponen en 18–20 USD al día, al recogerlo.</p>
+        </div>
+        <div class="bar">
+          <div class="top"><span>Atrápalo, precio alto de la ficha</span><span>3.509 €</span></div>
+          <div class="track" role="img" aria-label="Tres mil quinientos nueve euros"><i style="width:73%"></i></div>
+          <p>14 noches, junio–noviembre 2026, desde Madrid. La ficha también muestra 2.403 €. Los vuelos entran solo si se marcan en la compra.</p>
+        </div>
+        <div class="bar">
+          <div class="top"><span>Catai, desde</span><span>2.855 €</span></div>
+          <div class="track" role="img" aria-label="Dos mil ochocientos cincuenta y cinco euros"><i style="width:59%"></i></div>
+          <p>15 días, tarifa de mayo con Iberojet, tasas incluidas. No es julio.</p>
+        </div>
+        <article class="agency">
+          <div class="top"><span>Atrápalo, el otro precio</span><span>2.403 €</span></div>
+          <p>Misma ficha, misma ventana. Desayuno, algún almuerzo y cenas sueltas, traslados compartidos. No lleva guía de principio a fin ni la mayoría de comidas.</p>
+        </article>
+      </article>
+    </section>
+
+    <section id="ruta">
+      <p class="kicker" style="margin-top:2rem;text-transform:none;letter-spacing:0">Itinerario</p>
+      <h2 style="font-size:clamp(1.6rem,1.2rem + 1.4vw,2.1rem);margin:.3rem 0 .3rem">Cuatro bases. El Pacífico no se hace en un solo coche.</h2>
+      <p class="lede">1 + 3 + 6 + 8 noches. El día de playa largo es Uvita; Manuel Antonio es una mañana, nunca un martes.</p>
+      <div class="stops">
+        <article class="stop">
+          <header>
+            <h3><span class="num">1</span>Alajuela</h3>
+            <span class="nights">1 noche</span>
+          </header>
+          <div class="split">
+            <div>
+              <h3>Entrada</h3>
+              <p>El aeropuerto Juan Santamaría está en Alajuela. Hotel al lado y a dormir. El vuelo directo ronda las 11 h; no da para seguir.</p>
+            </div>
+            <div>
+              <h3>Para qué</h3>
+              <p>Quitar el vuelo de en medio. San José ciudad no hace falta.</p>
+            </div>
+          </div>
+        </article>
+        <article class="stop">
+          <header>
+            <h3><span class="num">2</span>Tortuguero</h3>
+            <span class="nights">3 noches</span>
+          </header>
+          <div class="split">
+            <div>
+              <h3>Entrada</h3>
+              <p>Avioneta desde San José, unos 50 minutos y unos 120 USD por persona. En barco y autobús son unas 4–5 h: se sale del tope.</p>
+            </div>
+            <div>
+              <h3>Caribe</h3>
+              <p>Canales, parque y tortuga verde. En julio empieza la anidación; el pico es después. El cupo de la playa va con el lodge, con meses de antelación. No hay carretera.</p>
+            </div>
+          </div>
+        </article>
+        <article class="stop">
+          <header>
+            <h3><span class="num">3</span>La Fortuna</h3>
+            <span class="nights">6 noches</span>
+          </header>
+          <div class="split">
+            <div>
+              <h3>Entrada</h3>
+              <p>Avioneta de vuelta a San José y coche de día hasta La Fortuna, en torno a 3 h. Si la lluvia lo alarga, se duerme en Alajuela y se sigue al día siguiente. Nada de noche.</p>
+            </div>
+            <div>
+              <h3>Volcán</h3>
+              <p>El Arenal no echa lava desde 2010: se mira el cono, por la mañana, si está despejado. El plan seguro son las termas. El parque nacional se hace desde aquí, sin cambiar de hotel.</p>
+            </div>
+          </div>
+        </article>
+        <article class="stop">
+          <header>
+            <h3><span class="num">4</span>Uvita</h3>
+            <span class="nights">8 noches</span>
+          </header>
+          <div class="split">
+            <div>
+              <h3>Entrada</h3>
+              <p>Coche de día La Fortuna–San José (el tope de 3 h) y avioneta a Quepos. De Quepos a Uvita hay una hora. El precio de esa avioneta no está publicado en estas fuentes.</p>
+            </div>
+            <div>
+              <h3>Pacífico</h3>
+              <p>Playa tranquila el resto de días. Una mañana a Manuel Antonio, de miércoles a lunes, 7:00 a 15:00. La vuelta a España sale de San José: se regresa en avioneta, no en un coche de cuatro horas.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="grid2" aria-label="Clima y trámites">
+      <article class="card">
+        <h2>Julio se moja, sobre todo en el Caribe</h2>
+        <p class="cap">Tortuguero, Weather Atlas. No es el parte de un día concreto.</p>
+        <div class="facts">
+          <div><span>Lluvia</span><b>624 mm</b><span>en 22 días. Es el mes más lluvioso allí.</span></div>
+          <div><span>Temperatura</span><b>24–30 °C</b><span>mínima y máxima medias.</span></div>
+        </div>
+        <p class="cap" style="margin-top:.9rem">En el Pacífico las mañanas suelen aguantar y la lluvia cae por la tarde. A mediados o finales de julio a veces hay un veranillo, seco y corto, y no está garantizado. Parques por la mañana. Termas o hamaca cuando abra.</p>
+      </article>
+      <article class="card">
+        <h2>Antes de ir</h2>
+        <ul>
+          <li><strong>Pasaporte español.</strong> Sin visado de turismo. Catai pide 6 meses de validez después del regreso.</li>
+          <li><strong>Tortugas.</strong> Playa con cupo y guía del lodge. Sin reserva no se baja de noche.</li>
+          <li><strong>Coche.</strong> Si una agencia lo mete, el seguro obligatorio se paga allí. Tarannà lo deja fuera del precio. No se conduce de noche ni el tramo largo al Pacífico sur.</li>
+          <li><strong>Mosquitos.</strong> En lluvias hay más. Repelente, sobre todo en el Caribe.</li>
+          <li><strong>Comidas.</strong> Fuera del lodge, sin una media que pueda citar. No las sumo al presupuesto.</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      <p>Fuentes, 3 de octubre de 2026. Vuelos: Kayak, media de agosto Madrid–Costa Rica, 1.069 € por persona; no es julio 2027. Lodge: tabla de Laguna Lodge, julio, columna doble. Avioneta a Tortuguero: guía de destino, unos 120 USD el trayecto y unos 50 minutos. Parque: SINAC, Manuel Antonio, 18,08 USD, martes cerrado, entradas en serviciosenlinea.sinac.go.cr. Coche: tabla de temporada alta con seguro obligatorio, unos 145 USD al día. Agencias: Catai (mayo, desde 2.855 €), Tarannà (4.120 € + 398 € de tasas, suplemento de julio 310 €, seguro de coche 18–20 USD/día aparte), Atrápalo (2.403 € y 3.509 €, 14 noches, junio–noviembre 2026). Lluvia: Weather Atlas, Tortuguero en julio. La Fortuna–Uvita por carretera supera las 4 h: por eso no va en la ruta.</p>
+    </footer>
+  </main>
+</body>
+</html>
